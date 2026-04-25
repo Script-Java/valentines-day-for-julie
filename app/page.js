@@ -53,9 +53,9 @@ export default function Home() {
   const [openCouponIndex, setOpenCouponIndex] = useState(null);
 
   const coupons = [
-    "🍣 All you can eat Sushi Date Night",
-    "🎬 Movie Night (You Pick, I won't complain)",
-    "🧞 I have to say YES to everything for one day",
+    "🍣 Sushi Date (I promise not to steal your rolls)",
+    "🎬 Movie Night (You pick, I pretend to like it)",
+    "🧞 You get to be the boss for a whole 24 hours (Use wisely)",
   ];
 
   const handleCouponClick = (index) => {
@@ -90,12 +90,15 @@ export default function Home() {
   const handleYesClick = () => {
     setYesPressed(true);
 
+    const sushiShape = confetti.shapeFromText({ text: '🍣', scalar: 2 });
+
     // Initial explosion
     confetti({
       particleCount: 150,
       spread: 70,
       origin: { y: 0.6 },
-      colors: ['#ff0000', '#ff69b4', '#ffffff']
+      shapes: [sushiShape],
+      scalar: 2
     });
 
     // Continuous confetti for a few seconds
@@ -109,7 +112,8 @@ export default function Home() {
         angle: 60,
         spread: 55,
         origin: { x: 0 },
-        colors: ['#ff0000', '#ff69b4', '#ffffff']
+        shapes: [sushiShape],
+        scalar: 2
       });
       // and launch a few from the right edge
       confetti({
@@ -117,7 +121,8 @@ export default function Home() {
         angle: 120,
         spread: 55,
         origin: { x: 1 },
-        colors: ['#ff0000', '#ff69b4', '#ffffff']
+        shapes: [sushiShape],
+        scalar: 2
       });
 
       if (Date.now() < end) {
@@ -145,13 +150,25 @@ export default function Home() {
   };
 
   const placeholderImages = [
-    "/1.jpeg",
-    "/2.jpeg",
-    "/3.jpeg",
-    "/4.jpeg",
-    "/5.jpeg",
-    "/6.jpeg",
-    "/7.jpeg",
+    "/IMG_8262.jpeg",
+    "/IMG_8364.jpeg",
+    "/IMG_8373.jpeg",
+    "/IMG_8383.jpeg",
+    "/IMG_8518.jpeg",
+    "/IMG_8587.jpeg",
+    "/IMG_8793.jpeg",
+    "/IMG_9293.jpeg",
+    "/IMG_9295.jpeg",
+    "/IMG_9296.jpeg",
+    "/IMG_9299.jpeg",
+    "/IMG_9378.jpeg",
+    "/IMG_9471.jpeg",
+    "/IMG_9535.jpeg",
+    "/IMG_9538.jpeg",
+    "/IMG_9539.jpeg",
+    "/IMG_9540.jpeg",
+    "/IMG_9752.jpeg",
+    "/IMG_9948.jpeg"
   ];
 
   return (
@@ -162,8 +179,8 @@ export default function Home() {
           {/* Hero Image */}
           <div className="relative w-64 h-64 md:w-80 md:h-80 drop-shadow-2xl hover:scale-105 transition-transform duration-300">
             <Image
-              src="/acid-animal.png"
-              alt="Cute Acid Animal"
+              src="/Untitled design.png"
+              alt="Funny Valentin"
               fill
               className="object-contain rounded-2xl"
               priority
@@ -172,7 +189,7 @@ export default function Home() {
 
           {/* Main Text */}
           <h1 className="text-4xl md:text-6xl font-extrabold text-rose-600 drop-shadow-sm animate-pulse font-serif italic">
-            Julie, will you be my Valentine?
+            Julie, will you be my Valentine? (Saying no is illegal)
           </h1>
 
           {/* Buttons */}
@@ -197,11 +214,11 @@ export default function Home() {
       ) : (
         <div className="flex flex-col items-center w-full max-w-5xl animate-fade-in-up">
           <h1 className="text-5xl md:text-7xl font-extrabold text-rose-600 mb-8 drop-shadow-md">
-            YAY! 🎈 I Knew It! 🎈
+            YAY! 🎈 You made the right choice. (The &apos;No&apos; button was broken anyway) 🎈
           </h1>
 
           <div className="text-2xl mb-8 text-rose-800 font-medium font-serif italic">
-            "Every moment with you is my favorite. Here are just a few of the million reasons why I love you." 💖
+            &quot;Every moment with you is my favorite. Here is proof we are obsessed with each other.&quot; 💖
           </div>
 
           <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4 w-full px-4 mb-12">
@@ -223,7 +240,7 @@ export default function Home() {
 
           {/* Love Coupons */}
           <div className="w-full px-4 mb-12">
-            <h2 className="text-3xl font-bold text-rose-600 mb-8 font-serif">Your Valentine's Gifts 🎁</h2>
+            <h2 className="text-3xl font-bold text-rose-600 mb-8 font-serif">Your Valentine&apos;s Gifts 🎁</h2>
             <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
               {coupons.map((text, index) => (
                 <div key={index} className="w-full max-w-xs">
@@ -239,7 +256,7 @@ export default function Home() {
           </div>
 
           <div className="mt-8 p-8 bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl w-full max-w-2xl border-4 border-rose-200">
-            <h2 className="text-3xl font-bold text-rose-600 mb-4 font-serif">I've loved you for:</h2>
+            <h2 className="text-3xl font-bold text-rose-600 mb-4 font-serif">I&apos;ve loved you for:</h2>
             <div className="text-2xl md:text-4xl font-mono text-rose-800 font-bold tracking-wider">
               {timeElapsed.days} Days, {timeElapsed.hours} Hours, {timeElapsed.minutes} Minutes, and {timeElapsed.seconds} Seconds
             </div>
