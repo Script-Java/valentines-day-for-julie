@@ -7,10 +7,12 @@ const CouponCard = ({ text, isOpen, onClick, isHidden }) => {
   if (isHidden) return null;
 
   return (
-    <div
-      className="w-full h-40 cursor-pointer group"
+    <button
+      className="w-full h-40 cursor-pointer group focus:outline-none focus-visible:ring-4 focus-visible:ring-rose-400 rounded-xl"
       style={{ perspective: '1000px' }}
       onClick={onClick}
+      aria-expanded={isOpen}
+      aria-label={isOpen ? `Coupon open: ${text}` : "Valentine's coupon: tap to reveal"}
     >
       <div
         className="relative w-full h-full duration-500 transition-transform"
@@ -41,7 +43,7 @@ const CouponCard = ({ text, isOpen, onClick, isHidden }) => {
         </div>
 
       </div>
-    </div>
+    </button>
   );
 };
 
@@ -204,6 +206,7 @@ export default function Home() {
             <button
               onMouseEnter={handleNoHover}
               onTouchStart={handleNoHover} // For mobile interaction
+              onFocus={handleNoHover} // For keyboard interaction
               style={noBtnStyle}
               className="px-6 py-3 text-lg font-semibold text-white bg-gray-400 rounded-full shadow-md hover:bg-gray-500 cursor-pointer transition-all duration-200"
             >
