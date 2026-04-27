@@ -1,0 +1,3 @@
+## 2024-03-24 - Custom Flip-Card Accessibility
+**Learning:** Custom interactive elements like flip-cards built with `div` tags often lack critical keyboard and screen reader support out of the box. Users relying on keyboards or screen readers are completely blocked from triggering these interactions (like flipping a coupon).
+**Action:** When building interactive UI elements using non-semantic tags (like `div`), always add `role="button"`, `tabIndex={0}`, keyboard event handlers (like `onKeyDown` for Enter/Space), visual focus states (`focus-visible`), and appropriate ARIA attributes (`aria-expanded`, `aria-label`) to ensure full accessibility.
