@@ -1,0 +1,3 @@
+## 2024-03-24 - Custom Interactive Elements (Flip Cards)
+**Learning:** Custom interactive elements (like the CSS flip-cards in `app/page.js`) built with `div` tags completely break keyboard navigation out-of-the-box. Users attempting to tab through the page will get stuck or skip the coupons.
+**Action:** Always ensure that any `div` with an `onClick` handler is accompanied by `role="button"`, `tabIndex={0}`, appropriate ARIA attributes (like `aria-expanded` and `aria-label`), and an `onKeyDown` handler mapping Enter/Space to the click action. Also, add clear `focus-visible` styles to indicate focus state.
