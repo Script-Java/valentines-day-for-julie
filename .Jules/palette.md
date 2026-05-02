@@ -1,0 +1,3 @@
+## 2025-03-05 - Making Custom Interactive Elements Accessible
+**Learning:** When using generic elements like `div` for complex interactive components (like flip cards), they are completely invisible to screen readers and unreachable by keyboard navigation, breaking the experience for users who rely on these tools.
+**Action:** Always add `role="button"` (or appropriate role), `tabIndex={0}`, `aria-*` state attributes (like `aria-expanded`), and explicit keyboard event handlers (`onKeyDown` for 'Enter'/'Space') to interactive non-button elements. Additionally, ensure a clear visible focus state using utilities like `focus-visible:ring`.
