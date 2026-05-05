@@ -8,9 +8,18 @@ const CouponCard = ({ text, isOpen, onClick, isHidden }) => {
 
   return (
     <div
-      className="w-full h-40 cursor-pointer group"
+      className="w-full h-40 cursor-pointer group focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-rose-400 rounded-xl"
       style={{ perspective: '1000px' }}
       onClick={onClick}
+      role="button"
+      tabIndex={0}
+      aria-expanded={isOpen}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onClick();
+        }
+      }}
     >
       <div
         className="relative w-full h-full duration-500 transition-transform"
@@ -264,7 +273,7 @@ export default function Home() {
 
           <button
             onClick={() => window.location.reload()}
-            className="mt-12 px-8 py-3 bg-white text-rose-500 font-bold rounded-full shadow-lg hover:shadow-xl transition-all"
+            className="mt-12 px-8 py-3 bg-white text-rose-500 font-bold rounded-full shadow-lg hover:shadow-xl transition-all focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-rose-400"
           >
             Play Again
           </button>
