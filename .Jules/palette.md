@@ -1,0 +1,3 @@
+## 2024-03-24 - Interactive Divs Need Explicit Accessibility
+**Learning:** Using generic `div` elements as custom interactive components (like flip cards/coupons) completely breaks keyboard navigation and screen reader support unless explicit accessibility attributes are added. Users navigating via keyboard get "trapped" or completely skip these elements.
+**Action:** When building interactive UI from generic containers, always add `role="button"`, `tabIndex={0}`, ARIA states (like `aria-expanded`), keyboard event handlers (`onKeyDown` for Enter/Space), and visual focus states (`focus-visible:ring`). Better yet, use semantic `<button>` tags when possible, but apply these fixes when custom layouts require divs.
