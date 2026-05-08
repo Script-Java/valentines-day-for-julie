@@ -6,11 +6,22 @@ import confetti from "canvas-confetti";
 const CouponCard = ({ text, isOpen, onClick, isHidden }) => {
   if (isHidden) return null;
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onClick();
+    }
+  };
+
   return (
     <div
-      className="w-full h-40 cursor-pointer group"
+      className="w-full h-40 cursor-pointer group focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-rose-400 rounded-xl"
       style={{ perspective: '1000px' }}
       onClick={onClick}
+      role="button"
+      tabIndex={0}
+      aria-expanded={isOpen}
+      onKeyDown={handleKeyDown}
     >
       <div
         className="relative w-full h-full duration-500 transition-transform"
@@ -45,18 +56,40 @@ const CouponCard = ({ text, isOpen, onClick, isHidden }) => {
   );
 };
 
+const coupons = [
+  "🍣 Sushi Date (I promise not to steal your rolls)",
+  "🎬 Movie Night (You pick, I pretend to like it)",
+  "🧞 You get to be the boss for a whole 24 hours (Use wisely)",
+];
+
+const placeholderImages = [
+  "/IMG_8262.jpeg",
+  "/IMG_8364.jpeg",
+  "/IMG_8373.jpeg",
+  "/IMG_8383.jpeg",
+  "/IMG_8518.jpeg",
+  "/IMG_8587.jpeg",
+  "/IMG_8793.jpeg",
+  "/IMG_9293.jpeg",
+  "/IMG_9295.jpeg",
+  "/IMG_9296.jpeg",
+  "/IMG_9299.jpeg",
+  "/IMG_9378.jpeg",
+  "/IMG_9471.jpeg",
+  "/IMG_9535.jpeg",
+  "/IMG_9538.jpeg",
+  "/IMG_9539.jpeg",
+  "/IMG_9540.jpeg",
+  "/IMG_9752.jpeg",
+  "/IMG_9948.jpeg"
+];
+
 export default function Home() {
   const [yesPressed, setYesPressed] = useState(false);
   const [noBtnStyle, setNoBtnStyle] = useState({});
   const [isClient, setIsClient] = useState(false);
   const [timeElapsed, setTimeElapsed] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [openCouponIndex, setOpenCouponIndex] = useState(null);
-
-  const coupons = [
-    "🍣 Sushi Date (I promise not to steal your rolls)",
-    "🎬 Movie Night (You pick, I pretend to like it)",
-    "🧞 You get to be the boss for a whole 24 hours (Use wisely)",
-  ];
 
   const handleCouponClick = (index) => {
     if (openCouponIndex === index) {
@@ -148,28 +181,6 @@ export default function Home() {
       zIndex: 50, // Ensure it sits on top of everything
     });
   };
-
-  const placeholderImages = [
-    "/IMG_8262.jpeg",
-    "/IMG_8364.jpeg",
-    "/IMG_8373.jpeg",
-    "/IMG_8383.jpeg",
-    "/IMG_8518.jpeg",
-    "/IMG_8587.jpeg",
-    "/IMG_8793.jpeg",
-    "/IMG_9293.jpeg",
-    "/IMG_9295.jpeg",
-    "/IMG_9296.jpeg",
-    "/IMG_9299.jpeg",
-    "/IMG_9378.jpeg",
-    "/IMG_9471.jpeg",
-    "/IMG_9535.jpeg",
-    "/IMG_9538.jpeg",
-    "/IMG_9539.jpeg",
-    "/IMG_9540.jpeg",
-    "/IMG_9752.jpeg",
-    "/IMG_9948.jpeg"
-  ];
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4 overflow-hidden text-center bg-gradient-to-br from-pink-100 via-rose-200 to-red-100 selection:bg-rose-300 pointer-events-auto">

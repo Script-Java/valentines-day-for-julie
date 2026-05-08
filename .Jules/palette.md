@@ -1,0 +1,3 @@
+## 2025-02-14 - Interactive Div Accessibility
+**Learning:** Using standard generic `div` tags as interactive elements (like custom buttons or cards) breaks accessibility for keyboard and screen reader users since they don't natively receive focus or handle standard key presses like `Enter` or `Space`.
+**Action:** When implementing custom interactive elements, always ensure they are accessible by adding appropriate `role` (e.g., `role="button"`), making them focusable with `tabIndex={0}`, defining semantic states with `aria-*` attributes (e.g., `aria-expanded`), and including an `onKeyDown` event handler to explicitly catch keyboard interactions, coupled with visually clear focus styles (e.g., `focus-visible:ring-*`).
