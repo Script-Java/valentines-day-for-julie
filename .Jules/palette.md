@@ -1,0 +1,3 @@
+## 2025-02-14 - Keyboard Accessibility in Interactive Elements
+**Learning:** For Next.js/React applications, substituting semantic `<button>` elements with `<div>` elements causes critical accessibility regressions. Users navigating via keyboard are unable to interact with key functional components (like `CouponCard`) because `div` lacks inherent focusability, role semantics, and default key event listeners for 'Enter' and 'Space'.
+**Action:** When a `<button>` cannot be used, ensure `div` elements intended as interactive buttons include `role="button"`, `tabIndex={0}`, appropriate `aria-*` state attributes (like `aria-expanded`), synthetic keyboard event listeners (`onKeyDown`), and visual focus styling (`focus-visible:ring`).
