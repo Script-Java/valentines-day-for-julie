@@ -1,0 +1,3 @@
+## 2025-03-24 - Keyboard Accessibility for Custom Interactive Elements
+**Learning:** In Next.js/React applications, when replacing native `<button>` elements with `<div>` to achieve specific layout goals (like 3D card flips), developers frequently forget semantic ARIA roles, tabindex, and keydown handlers. Even when `onClick` is provided, keyboard users cannot trigger the interaction without `onKeyDown` and visual focus indicators (`focus-visible`).
+**Action:** When creating custom interactive widgets using non-semantic tags (like generic `<div>`), I must always ensure `role="button"`, `tabIndex={0}`, an `onKeyDown` listener checking for 'Enter'/'Space', and explicit `focus-visible` styling is included for full a11y compliance.
