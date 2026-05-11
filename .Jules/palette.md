@@ -1,0 +1,3 @@
+## 2025-03-01 - Missing Keyboard Accessibility on Custom Interactive Elements
+**Learning:** The `CouponCard` component uses a generic `div` as an interactive element (acting as a button) but lacks keyboard accessibility. Screen reader and keyboard-only users would not be able to interact with the love coupons.
+**Action:** When creating custom interactive elements, always ensure they are accessible by adding `role="button"`, `tabIndex={0}`, appropriate `aria-*` attributes (like `aria-expanded`), keyboard event handlers (`onKeyDown` for 'Enter' and 'Space'), and clear visual focus states (`focus-visible`).
