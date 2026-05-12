@@ -1,0 +1,3 @@
+## 2023-10-27 - Custom Interactive Element Accessibility
+**Learning:** Custom interactive elements (like generic `div`s used as buttons/cards) often lack built-in accessibility features such as keyboard navigation (`tabIndex`), semantic meaning (`role="button"`), state indication (`aria-expanded`), and visual focus styles. This makes them unusable for keyboard-only and screen reader users.
+**Action:** When creating custom interactive elements, always ensure they are fully accessible by adding appropriate ARIA roles, `tabIndex={0}`, keyboard event handlers (for 'Enter' and 'Space'), and clear visual focus states (e.g., using `focus-visible`).
