@@ -1,0 +1,3 @@
+## 2024-05-16 - Accessible Custom Interactive Elements
+**Learning:** In Next.js applications, adding `onClick` to generic structural elements (like `div`) to act as buttons prevents screen readers and keyboard users from interacting with them, leading to an inaccessible UI component.
+**Action:** Always ensure that custom interactive components functioning as buttons include `role="button"`, `tabIndex={0}`, relevant ARIA properties (like `aria-expanded`), keydown handlers for "Enter" and "Space" (to trigger `onClick` and `e.preventDefault()` to avoid page scrolling for "Space"), and explicit visual focus outlines (`focus-visible:ring`).
