@@ -1,0 +1,3 @@
+## 2024-05-18 - Keyboard Accessibility for Custom Interactive Elements
+**Learning:** When using standard `div` elements as custom interactive buttons (e.g., `CouponCard`), they natively lack keyboard accessibility features. Users navigating via keyboard cannot focus or activate them.
+**Action:** Always ensure custom generic elements meant to be interactive receive `role="button"`, `tabIndex={0}`, appropriate ARIA states (like `aria-expanded`), a clear visual focus indicator (e.g., `focus-visible:ring-4`), and an `onKeyDown` event handler to support 'Enter' and 'Space' (including `e.preventDefault()` to stop page scrolling for Spacebar).
