@@ -1,0 +1,3 @@
+## 2024-05-18 - Keyboard Accessibility for Generic Div Buttons
+**Learning:** When using generic `div` elements as custom interactive components (like the `CouponCard`), it is a common anti-pattern to only add an `onClick` handler. This completely breaks keyboard navigation for users relying on the Tab key and prevents interaction using Enter or Space, failing basic accessibility standards.
+**Action:** Always verify custom components have `role="button"`, `tabIndex={0}`, relevant `aria-*` attributes, an `onKeyDown` handler (that prevents default Space scroll behavior), and clear `focus-visible` styling to ensure parity with native `<button>` elements.
