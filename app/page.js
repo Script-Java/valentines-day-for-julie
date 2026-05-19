@@ -6,11 +6,22 @@ import confetti from "canvas-confetti";
 const CouponCard = ({ text, isOpen, onClick, isHidden }) => {
   if (isHidden) return null;
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onClick();
+    }
+  };
+
   return (
     <div
-      className="w-full h-40 cursor-pointer group"
+      className="w-full h-40 cursor-pointer group focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-rose-400 rounded-xl"
       style={{ perspective: '1000px' }}
       onClick={onClick}
+      role="button"
+      tabIndex={0}
+      aria-expanded={isOpen}
+      onKeyDown={handleKeyDown}
     >
       <div
         className="relative w-full h-full duration-500 transition-transform"
