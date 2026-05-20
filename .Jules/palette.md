@@ -1,0 +1,3 @@
+## 2024-05-18 - Keyboard Accessible Custom Buttons
+**Learning:** In Next.js/React applications with custom interactive elements (like generic divs used as buttons for flip cards or generic actions), adding `role="button"` and `tabIndex={0}` is not enough. Without explicitly adding an `onKeyDown` handler listening for "Enter" and "Space" (and calling `e.preventDefault()` for Space to stop page scroll), keyboard users cannot activate the element.
+**Action:** When adding interactive click actions to non-interactive elements, always add ARIA attributes, keyboard interaction events (Enter/Space), and visible focus states (e.g., `focus-visible:ring-4`) for a complete accessible experience.
