@@ -1,0 +1,3 @@
+## 2025-02-14 - Making Custom Divs Accessible as Buttons
+**Learning:** In Next.js/React applications, using generic `div` elements for complex interactive components (like a 3D flipping card) inherently strips them of accessibility features. Screen readers won't recognize them as buttons, and keyboard users cannot navigate to or activate them without explicit configuration.
+**Action:** Always ensure that `div` elements acting as buttons have `role="button"`, `tabIndex={0}`, appropriate ARIA attributes (like `aria-expanded` for toggles), explicit focus states (`focus-visible:ring-4`), and an `onKeyDown` handler to support 'Enter' and 'Space' activation (including `e.preventDefault()` on 'Space' to prevent unintended page scrolling).
