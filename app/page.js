@@ -8,9 +8,18 @@ const CouponCard = ({ text, isOpen, onClick, isHidden }) => {
 
   return (
     <div
-      className="w-full h-40 cursor-pointer group"
+      className="w-full h-40 cursor-pointer group focus-visible:ring-4 focus-visible:ring-rose-400 focus:outline-none rounded-xl"
       style={{ perspective: '1000px' }}
       onClick={onClick}
+      role="button"
+      tabIndex={0}
+      aria-expanded={isOpen}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onClick();
+        }
+      }}
     >
       <div
         className="relative w-full h-full duration-500 transition-transform"
